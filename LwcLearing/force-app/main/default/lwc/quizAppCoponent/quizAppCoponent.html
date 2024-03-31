@@ -1,0 +1,48 @@
+<template>
+   
+    <lightning-card title="Quiz App" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <form>
+            <template for:each={myQuestions} for:item="ques">
+                <div key={ques.id}>
+                    <div><strong class="slds-text-heading_small">Question #{ques.id}: {ques.question}</strong></div>
+                    <div class="slds-grid slds-gutters slds-m-vertical_medium">
+                        <div class="slds-col">
+                            <input type="radio" name={ques.id} value="a" onchange={handleChange} />
+                            {ques.options.a}
+                        </div>
+                        <div class="slds-col">
+                            <input type="radio" name={ques.id} value="b" onchange={handleChange} />
+                            {ques.options.b}
+                        </div>
+                        <div class="slds-col">
+                            <input type="radio" name={ques.id} value="c" onchange={handleChange} />
+                            {ques.options.c}
+                        </div>
+                        <div class="slds-col">
+                            <input type="radio" name={ques.id} value="d" onchange={handleChange} />
+                            {ques.options.d}
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <lightning-button 
+                label="Submit"
+                 type="Submit" 
+                disabled={allNotSelected}
+                 variant="brand"
+                 class="slds-m-around_small"
+                 onclick={handleSubmit}>
+            </lightning-button>
+            <lightning-button 
+                label="Reset"
+                 type="Reset" 
+                 variant="brand"
+                 class="slds-m-around_small"
+                 onclick={handleReset}>
+            </lightning-button>
+        </form>
+        </div>
+    </lightning-card>
+
+</template>

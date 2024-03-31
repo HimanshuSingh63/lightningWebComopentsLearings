@@ -1,0 +1,76 @@
+<template>
+
+    <!-- /For Each Loop with array-->
+    <lightning-card
+        title="Learning For Each Loop">
+        <div class="slds-m-around_medium">
+            <template for:each={carList} for:item="car">
+                <ul class="slds-has-dividers_around-space" key={car} >
+                    <li class="slds-item" >{car}</li>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+
+  <!-- /For Each Loop with array of ob 
+    <lightning-card
+    title="Each Loop with Array of objetc">
+    <div class="slds-m-around_medium">
+        <template for:each={ceoList} for:item="ceo">
+            <ul class="slds-has-dividers_around-space" key={ceo.id} >
+                <li class="slds-item" >{ceo.name}<strong>{ceo.company}</strong></li>
+            </ul>
+        </template>
+    </div>
+</lightning-card>-->
+
+    <!-- Iterator toop with array of Ob-->
+    <lightning-card
+        title="Learning Iterator Loop">
+        <div class="slds-m-around_medium">
+
+            <template iterator:ceo={ceoList}>
+                <ul class="slds-has-dividers_around-space slds-m-around_small" key={ceo.value.id}>
+
+                    <template  if:true={ceo.first}>
+                        <div class="slds-box slds-theme_shade">
+                            <strong>List of Top Company and Ceo</strong>
+                        </div>
+                    </template>
+                    <li class="slds-item" >{ceo.value.name}<strong>-->{ceo.value.company}</strong></li>
+
+                    <template  if:true={ceo.last}>
+                        <div class="slds-box slds-theme_shade">
+                            <strong>Thanks for Reading the list</strong>
+                        </div>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+
+    <!-- Iterator loop with array 
+    <lightning-card
+        title="Learning Iterator Loop">
+        <div class="slds-m-around_medium">
+
+            <template iterator:car={carList}>
+                <ul class="slds-has-dividers_around-space slds-m-around_small" key={car.value}>
+
+                    <template  if:true={car.first}>
+                        <div class="slds-box slds-theme_shade">
+                            <strong>List of Cars</strong>
+                        </div>
+                    </template>
+                    <li class="slds-item" ><strong>{car.value}</strong></li>
+
+                    <template  if:true={car.last}>
+                        <div class="slds-box slds-theme_shade">
+                            <strong>Thanks for Reading the list</strong>
+                        </div>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>-->
+</template>
