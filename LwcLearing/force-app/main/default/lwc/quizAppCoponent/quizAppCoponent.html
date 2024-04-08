@@ -1,7 +1,7 @@
 <template>
    
     <lightning-card title="Quiz App" icon-name="custom:custom14">
-        <div class="slds-m-around_medium">
+        <div class="slds-m-around_small slds-box">
             <form>
             <template for:each={myQuestions} for:item="ques">
                 <div key={ques.id}>
@@ -26,21 +26,23 @@
                     </div>
                 </div>
             </template>
-            <lightning-button 
-                label="Submit"
-                 type="Submit" 
-                disabled={allNotSelected}
-                 variant="brand"
-                 class="slds-m-around_small"
-                 onclick={handleSubmit}>
-            </lightning-button>
-            <lightning-button 
-                label="Reset"
-                 type="Reset" 
-                 variant="brand"
-                 class="slds-m-around_small"
-                 onclick={handleReset}>
-            </lightning-button>
+            <div class="slds-align_absolute-center">
+                <lightning-button 
+                    label="Submit"
+                     type="Submit" 
+                    disabled={allNotSelected}
+                     variant="brand"
+                     class="slds-m-around_small test"
+                     onclick={handleSubmit}>
+                </lightning-button>
+                <lightning-button 
+                    label="Reset"
+                     type="Reset" 
+                     variant="brand"
+                     class="slds-m-around_small"
+                     onclick={handleReset}>
+                </lightning-button>
+            </div>
         </form>
         </div>
     </lightning-card>

@@ -1,0 +1,4 @@
+.designTokens{
+    color: var(--lwc-brandAccessible);
+    background-color: var(--lwc-colorBackgroundAlt);
+}

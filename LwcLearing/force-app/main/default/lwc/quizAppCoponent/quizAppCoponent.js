@@ -3,7 +3,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { JSConfetti } from './js-confetti';
 
 export default class QuizAppCoponent extends LightningElement {
-
+    
     myQuestions = [
         {
             id: 1,
@@ -63,9 +63,16 @@ export default class QuizAppCoponent extends LightningElement {
     ];
     selected = {};
     correctAnswer = 0;
+    
     get allNotSelected() {
         return !(Object.keys(this.selected).length === this.myQuestions.length);
     }
+    get emojis() {
+        return this.correctAnswer <= 2 ? '🥺😟😔🥲' : '😀😁🥳🎇';
+      }
+    get variant(){
+          return this.correctAnswer <= 2 ? 'error' : 'success';
+      }
 
 
     handleChange(event) {
@@ -87,10 +94,11 @@ export default class QuizAppCoponent extends LightningElement {
     }
 
     showToast() {
+
         const event = new ShowToastEvent({
             title: 'Your Score',
             message: 'You scored ' + this.correctAnswer + ' out of ' + this.myQuestions.length,
-            variant: 'success',
+            variant: this.variant,
         });
         this.dispatchEvent(event);
 
@@ -100,10 +108,7 @@ export default class QuizAppCoponent extends LightningElement {
     @api type = 'emoji';
     @api emoji = this.emojis;
 
-    get emojis() {
-      return this.correctAnswer <= 2 ? '🥺😟😔🥲' : '😀😁🥳🎇';
-    }
-
+    
     
     sizeOptions = [
         { label: 'small', value: 60 },
