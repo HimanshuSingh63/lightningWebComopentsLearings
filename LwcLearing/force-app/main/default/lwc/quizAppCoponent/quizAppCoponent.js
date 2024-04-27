@@ -94,7 +94,6 @@ export default class QuizAppCoponent extends LightningElement {
     }
 
     showToast() {
-
         const event = new ShowToastEvent({
             title: 'Your Score',
             message: 'You scored ' + this.correctAnswer + ' out of ' + this.myQuestions.length,

@@ -1,0 +1,9 @@
+<apex:page renderAs="pdf">
+    <table style="width:100%;">
+        <tr>
+            <td style="width:25%;">Banana 1</td>
+            <td style="width:50%; text-align : center">Banana 2</td>
+            <td style="width:25%; text-align : right;">Banana 3</td>
+        </tr>
+    </table>
+</apex:page>

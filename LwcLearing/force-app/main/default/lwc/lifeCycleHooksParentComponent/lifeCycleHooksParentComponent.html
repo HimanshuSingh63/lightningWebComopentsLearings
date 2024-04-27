@@ -1,8 +1,24 @@
 <template>
     <lightning-card title="Life Cycle Hooks Parent Card">
         <div class="slds-m-around_medium">
-            <c-life-cycle-hooks-child-component></c-life-cycle-hooks-child-component>
-        </div>
+            <template if:true={isChildVisible}>
+                <lightning-button variant="brand"
+                label="Hide Child"
+                title="Hide child"
+                onclick={handleClick}
+                class="slds-m-left_x-small"></lightning-button>
+            </template> 
+            <template if:false={isChildVisible}><lightning-button variant="brand"
+                label="Show Child"
+                title="Show child"
+                onclick={handleClick}
+                class="slds-m-left_x-small"></lightning-button>
+            </template>
+            <template if:true={isChildVisible}>
+                <c-life-cycle-hooks-child-component></c-life-cycle-hooks-child-component>
+            </template>
+           
+        </div> 
     </lightning-card>
     
 </template>
